@@ -1,0 +1,8 @@
+SPIKE ADR-0005 — isolamento por célula
+eventos roteados: 18
+erros de rota: ()
+cidade-a estado final: (6, 6, 0, True)
+cidade-b estado final: (1, 5, 0, False)
+cidade-a pendente na falha: 6
+cidade-b processados: ('B-001', 'B-002', 'B-003', 'B-late-001', 'B-late-002')
+isolamento comprovado: True
