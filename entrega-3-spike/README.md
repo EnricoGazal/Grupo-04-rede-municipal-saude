@@ -1,6 +1,6 @@
-# Spike — Isolamento por célula
+# Entrega 3 — Spike: isolamento por célula
 
-[← Entrega 2](../docs/entrega-2-documento-de-arquitetura.md) · [Voltar ao README](../README.md)
+[← Entrega 2](../entrega-2-documento-de-arquitetura/) · [Voltar ao README](../README.md) · [Entrega 4 →](../entrega-4-leitura-cruzada/)
 
 Este programa prova a decisão do ADR-0005. Ele cria duas células, `cidade-a` e `cidade-b`, com filas e consumidores independentes. A Cidade A recebe um pico de eventos, processa parte da carga e falha. A Cidade B continua processando os eventos que já tinha e novos eventos, sem consumir a fila da Cidade A.
 
@@ -9,7 +9,7 @@ O mecanismo externo é simulado por filas em memória. O roteamento exige que o 
 ## Como executar
 
 ```bash
-cd spike
+cd entrega-3-spike
 python3 exemplo.py
 
 # conferir contra a saída esperada

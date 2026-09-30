@@ -13,5 +13,5 @@ jobs:
         with:
           python-version: "3.12"
       - name: Executa o spike e compara com a saída esperada
-        working-directory: spike
+        working-directory: entrega-3-spike
         run: python exemplo.py | diff - saida-esperada.txt

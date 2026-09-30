@@ -2,7 +2,7 @@
 
 **Grupo 04 · Caso Saúde · Envelope D**
 
-[← Entrega 1](entrega-1-matriz-de-estilos.md) · [Voltar ao README](../README.md) · [Spike →](../spike/README.md)
+[← Entrega 1](../entrega-1-matriz-de-estilos/) · [Voltar ao README](../README.md) · [Entrega 3 →](../entrega-3-spike/)
 
 ## 1. Resumo executivo
 

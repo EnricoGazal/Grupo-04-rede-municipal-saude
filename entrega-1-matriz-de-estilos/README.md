@@ -2,7 +2,7 @@
 
 **Grupo 04 · Caso Saúde · Envelope D**
 
-[← Voltar ao README](../README.md) · [Entrega 2 →](entrega-2-documento-de-arquitetura.md)
+[Voltar ao README](../README.md) · [Entrega 2 →](../entrega-2-documento-de-arquitetura/)
 
 ## Contexto de avaliação
 

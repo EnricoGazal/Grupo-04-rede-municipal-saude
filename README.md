@@ -38,7 +38,7 @@ Uma empresa vende um sistema de atenção à saúde para **várias secretarias m
 | **Orientada a eventos** | Desacoplamento quando a resposta não precisa ser imediata |
 | **CQRS seletivo** | Só em consultas com pico ou agregações caras |
 
-> ❌ **Descartados:** Event Sourcing como arquitetura de dados geral e ESB como núcleo da aplicação — justificativa na [Entrega 1](docs/entrega-1-matriz-de-estilos.md#estilos-considerados-e-descartados).
+> ❌ **Descartados:** Event Sourcing como arquitetura de dados geral e ESB como núcleo da aplicação — justificativa na [Entrega 1](entrega-1-matriz-de-estilos/#estilos-considerados-e-descartados).
 
 ```mermaid
 flowchart LR
@@ -74,18 +74,18 @@ flowchart LR
 
 | # | Entrega | Status | Link |
 |:-:|---|:-:|---|
-| 1 | Matriz de estilos aplicada (12 estilos) | ✅ | [docs/entrega-1-matriz-de-estilos.md](docs/entrega-1-matriz-de-estilos.md) |
-| 2 | Documento de arquitetura — C4, mapa de restrições, ADRs | ✅ | [docs/entrega-2-documento-de-arquitetura.md](docs/entrega-2-documento-de-arquitetura.md) |
-| 3 | Spike — isolamento por célula (ADR-0005) | ✅ | [spike/](spike/) |
-| 4 | Leitura cruzada com outro grupo | ⏳ | — |
-| 5 | Entrega final revisada | ⏳ | — |
+| 1 | Matriz de estilos aplicada (12 estilos) | ✅ | [📁 entrega-1-matriz-de-estilos](entrega-1-matriz-de-estilos/) |
+| 2 | Documento de arquitetura — C4, mapa de restrições, ADRs | ✅ | [📁 entrega-2-documento-de-arquitetura](entrega-2-documento-de-arquitetura/) |
+| 3 | Spike — isolamento por célula (ADR-0005) | ✅ | [📁 entrega-3-spike](entrega-3-spike/) |
+| 4 | Leitura cruzada com outro grupo | ⏳ | [📁 entrega-4-leitura-cruzada](entrega-4-leitura-cruzada/) |
+| 5 | Entrega final revisada | ⏳ | [📁 entrega-5-entrega-final](entrega-5-entrega-final/) |
 
 ## 🧪 Spike: isolamento por célula
 
 O spike prova a decisão mais arriscada: **a falha de uma cidade não afeta as outras**. Duas células com filas e consumidores independentes; a Cidade A recebe um pico e falha, e a Cidade B continua processando normalmente.
 
 ```bash
-cd spike
+cd entrega-3-spike
 python3 exemplo.py | diff - saida-esperada.txt && echo "OK: saída idêntica"
 ```
 
@@ -112,13 +112,18 @@ A cada push, o GitHub Actions roda o spike com Python 3.12 e compara com `saida-
 ```text
 .
 ├── README.md
-├── docs/
-│   ├── entrega-1-matriz-de-estilos.md
-│   └── entrega-2-documento-de-arquitetura.md
-├── spike/
+├── entrega-1-matriz-de-estilos/
+│   └── README.md
+├── entrega-2-documento-de-arquitetura/
+│   └── README.md
+├── entrega-3-spike/
 │   ├── README.md
 │   ├── exemplo.py
 │   └── saida-esperada.txt
+├── entrega-4-leitura-cruzada/
+│   └── README.md
+├── entrega-5-entrega-final/
+│   └── README.md
 └── .github/workflows/spike.yml
 ```
 
