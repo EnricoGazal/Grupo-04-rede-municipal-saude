@@ -1,0 +1,17 @@
+name: Spike
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  saida-deterministica:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Executa o spike e compara com a saída esperada
+        working-directory: spike
+        run: python exemplo.py | diff - saida-esperada.txt

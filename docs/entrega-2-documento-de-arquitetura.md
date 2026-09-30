@@ -2,6 +2,8 @@
 
 **Grupo 04 · Caso Saúde · Envelope D**
 
+[← Entrega 1](entrega-1-matriz-de-estilos.md) · [Voltar ao README](../README.md) · [Spike →](../spike/README.md)
+
 ## 1. Resumo executivo
 
 A solução proposta é uma plataforma de atenção à saúde multi-tenant para secretarias com redes de 10 a 200 unidades. O sistema é organizado em células por cidade. Cada célula possui os serviços de prontuário, atendimento, regulação, farmácia, agendamento e vigilância, além de filas e armazenamento particionados por `tenant_id`. Um plano de controle regional mantém catálogo de clientes, configuração, observabilidade e provisionamento, mas não transporta o tráfego clínico de rotina.

@@ -1,5 +1,7 @@
 # Spike — Isolamento por célula
 
+[← Entrega 2](../docs/entrega-2-documento-de-arquitetura.md) · [Voltar ao README](../README.md)
+
 Este programa prova a decisão do ADR-0005. Ele cria duas células, `cidade-a` e `cidade-b`, com filas e consumidores independentes. A Cidade A recebe um pico de eventos, processa parte da carga e falha. A Cidade B continua processando os eventos que já tinha e novos eventos, sem consumir a fila da Cidade A.
 
 O mecanismo externo é simulado por filas em memória. O roteamento exige que o `tenant_id` do evento corresponda à célula. O resultado é determinístico e deve ser idêntico ao arquivo `saida-esperada.txt`.
@@ -7,7 +9,11 @@ O mecanismo externo é simulado por filas em memória. O roteamento exige que o 
 ## Como executar
 
 ```bash
+cd spike
 python3 exemplo.py
+
+# conferir contra a saída esperada
+python3 exemplo.py | diff - saida-esperada.txt && echo "OK: saída idêntica"
 ```
 
 O programa usa somente a biblioteca padrão do Python 3.12. Asserções interrompem a execução caso o isolamento não seja comprovado.
