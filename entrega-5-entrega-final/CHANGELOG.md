@@ -22,7 +22,7 @@ As integrações legadas passaram a ser descritas como adaptadores versionados p
 
 ### Mudanças na leitura cruzada
 
-A Entrega 4B foi completada em `4-leitura-cruzada/respostas-recebidas.md`, com resposta às sete objeções recebidas. Foram aceitas integralmente as críticas sobre o spike, autoridade dupla de reserva e pico de escrita; foram aceitas parcialmente as críticas sobre células por porte e quantidade de serviços; e foi aceita a necessidade de explicitar roteamento, adaptadores por cliente e catálogo fora do caminho clínico.
+A Entrega 4B foi completada em `entrega-4-leitura-cruzada/respostas-recebidas.md`, com resposta às sete objeções recebidas. Foram aceitas integralmente as críticas sobre o spike, autoridade dupla de reserva e pico de escrita; foram aceitas parcialmente as críticas sobre células por porte e quantidade de serviços; e foi aceita a necessidade de explicitar roteamento, adaptadores por cliente e catálogo fora do caminho clínico.
 
 ### Substituição formal de ADRs
 
@@ -37,7 +37,7 @@ Os ADRs 0001, 0003, 0004 e 0005 foram preservados como histórico das decisões 
 
 ### Mudanças no spike
 
-O spike em `3-spike/exemplo.py` foi reescrito para simular uma célula compartilhada por duas cidades pequenas. Ele testa catálogo indisponível depois do carregamento da rota, quota individual, pico da Cidade A, falha da Cidade A, continuidade da Cidade B e rejeição de uma requisição com tenant do corpo diferente do tenant autenticado. A saída foi executada e registrada em `saida-esperada.txt`.
+O spike em `entrega-3-spike/exemplo.py` foi reescrito para simular uma célula compartilhada por duas cidades pequenas. Ele testa catálogo indisponível depois do carregamento da rota, quota individual, pico da Cidade A, falha da Cidade A, continuidade da Cidade B e rejeição de uma requisição com tenant do corpo diferente do tenant autenticado. A saída foi executada e registrada em `saida-esperada.txt`.
 
 ### Verificação final
 
@@ -54,3 +54,7 @@ Foram executadas as seguintes verificações:
 ## Estrutura para envio
 
 O professor deve receber o link do repositório revisado. O arquivo `grupo-04-4b-atualizado.zip` é apenas uma cópia de segurança local; o conteúdo que precisa estar no Git é a pasta inteira `grupo-04`, incluindo todos os diretórios de `1-matriz` a `5-final`.
+
+## Organização da publicação no GitHub
+
+O pacote foi extraído e incorporado às pastas `entrega-1-matriz-de-estilos` a `entrega-5-entrega-final`. Os caminhos foram adaptados, os índices de leitura foram criados e os diagramas passaram a ter páginas `.md` com Mermaid, mantendo as fontes e imagens fornecidas. Trechos residuais da matriz, das fronteiras de estilos e do documento de arquitetura foram alinhados aos ADRs 0006–0009; os ADRs históricos não foram alterados. A saída do spike foi novamente comparada com a referência e o código passou por `py_compile` na preparação desta publicação.

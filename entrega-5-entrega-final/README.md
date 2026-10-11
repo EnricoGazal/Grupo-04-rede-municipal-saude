@@ -1,4 +1,4 @@
-﻿# Entrega 5 — Entrega final revisada
+# Entrega 5 — Versão final revisada
 
 **Grupo 04 · Caso Saúde · Envelope D**  
 Padrões e Arquitetura de Software — PUC-Campinas · 2026/2
@@ -7,36 +7,33 @@ Padrões e Arquitetura de Software — PUC-Campinas · 2026/2
 
 Lucas Joaquim; Lucas Ferro; Gabriel Jesus; Eduardo Borsatto; Enrico Gazal.
 
-## Guia de leitura para o professor
+## Roteiro de avaliação
 
-1. Consulte o [changelog da versão final](CHANGELOG.md) para conhecer as alterações relatadas após a leitura cruzada com o Grupo 09.
-2. Consulte a [matriz de estilos](../entrega-1-matriz-de-estilos/) e o [documento de arquitetura](../entrega-2-documento-de-arquitetura/) para acompanhar a fundamentação.
-3. Consulte o [spike e sua saída esperada](../entrega-3-spike/) para examinar a demonstração disponível no repositório.
-4. Consulte a [leitura cruzada](../entrega-4-leitura-cruzada/) para acompanhar o material da Entrega 4.
+1. [Changelog da versão final](CHANGELOG.md): mudanças após a leitura cruzada.
+2. [Matriz de estilos revisada](../entrega-1-matriz-de-estilos/): avaliação dos doze estilos e descartes.
+3. [Documento de arquitetura](../entrega-2-documento-de-arquitetura/documento-arquitetura.md): decisões, restrições e respostas às perguntas do caso.
+4. [Diagramas C4 e índice dos ADRs](../entrega-2-documento-de-arquitetura/): contexto, contêineres e componentes.
+5. [Entrega 4B](../entrega-4-leitura-cruzada/respostas-recebidas.md): respostas às sete objeções do Grupo 09.
+6. [Spike revisado](../entrega-3-spike/): código executável, cenário e saída esperada.
 
-## Material publicado e pendências
+## ADRs vigentes e histórico
 
-O changelog fornecido pelo grupo está publicado nesta pasta. Ele relata mudanças na arquitetura, respostas a sete objeções e verificações executadas na versão revisada.
+| Decisão vigente | Histórico substituído | Tema |
+| --- | --- | --- |
+| [ADR-0006](../entrega-2-documento-de-arquitetura/adr/0006-celulas-por-porte-e-modularidade.md) | ADR-0001 | Células por porte e três unidades operacionais |
+| [ADR-0007](../entrega-2-documento-de-arquitetura/adr/0007-autoridade-e-adaptadores-por-tenant.md) | ADR-0003 | Autoridade única de reserva e adaptadores por tenant |
+| [ADR-0008](../entrega-2-documento-de-arquitetura/adr/0008-operacao-e-escrita-em-campanhas.md) | ADR-0004 | Operação por célula e controle da escrita |
+| [ADR-0009](../entrega-2-documento-de-arquitetura/adr/0009-roteamento-replicado-e-quota-por-tenant.md) | ADR-0005 | Roteamento replicado e quota por tenant |
 
-**A consolidação da entrega final ainda depende dos arquivos revisados.** O changelog, isoladamente, não contém os ADRs 0006–0009, os diagramas C4 atualizados, as respostas da Entrega 4B ou o novo código do spike. As verificações descritas nele são registros do documento fornecido, e não uma validação desses arquivos nesta publicação.
+O ADR-0002 permanece vigente. Os ADRs anteriores são preservados na pasta `adr/` como histórico.
 
-Para concluir a consolidação, devem ser incorporados ao repositório:
+## Verificação da publicação
 
-- Matriz e documento de arquitetura revisados, com os diagramas C4 atualizados;
-- ADRs 0006–0009, preservando os ADRs anteriores como histórico;
-- Respostas às sete objeções recebidas na Entrega 4B;
-- Spike revisado e `saida-esperada.txt`, com execução e comparação da saída.
+- Material extraído do pacote `grupo-04-4b-atualizado.zip` e organizado nas cinco pastas de entregas existentes.
+- Textos em `.md`, com links relativos; diagramas disponíveis em páginas Markdown com Mermaid e nos arquivos originais.
+- Spike executado com sucesso; saída comparada com `saida-esperada.txt` e código compilado com `py_compile`.
+- Verificação automática do spike mantida no [GitHub Actions](https://github.com/EnricoGazal/Grupo-04-rede-municipal-saude/actions/workflows/spike.yml).
 
-## Convenção de pastas
+O spike é uma simulação determinística; não substitui testes de carga, rede ou múltiplas réplicas em produção. O documento da Entrega 4A conserva a ressalva do pacote sobre confrontar as objeções com o repositório recebido.
 
-O changelog conserva os caminhos usados na versão original do pacote. Neste repositório, a navegação usa a seguinte correspondência:
-
-| Caminho no changelog/pacote | Pasta neste repositório |
-| --- | --- |
-| `1-matriz` | [entrega-1-matriz-de-estilos](../entrega-1-matriz-de-estilos/) |
-| Documento de arquitetura | [entrega-2-documento-de-arquitetura](../entrega-2-documento-de-arquitetura/) |
-| `3-spike` | [entrega-3-spike](../entrega-3-spike/) |
-| `4-leitura-cruzada` | [entrega-4-leitura-cruzada](../entrega-4-leitura-cruzada/) |
-| `5-final` | [entrega-5-entrega-final](./) |
-
-[← Entrega 4](../entrega-4-leitura-cruzada/) · [Voltar ao início](../README.md)
+[← Leitura cruzada](../entrega-4-leitura-cruzada/) · [Voltar ao início](../README.md)

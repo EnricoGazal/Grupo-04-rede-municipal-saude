@@ -1,28 +1,38 @@
-# Entrega 3 — Spike: isolamento por célula
+# Spike — Roteamento e isolamento por tenant
 
-[← Entrega 2](../entrega-2-documento-de-arquitetura/) · [Voltar ao README](../README.md) · [Entrega 4 →](../entrega-4-leitura-cruzada/)
+Este spike prova a decisão do **ADR-0009** após a revisão do Grupo 09. O cenário usa duas cidades pequenas na mesma célula de capacidade. A célula compartilha infraestrutura, mas possui quotas de processamento separadas por tenant.
 
-Este programa prova a decisão do ADR-0005. Ele cria duas células, `cidade-a` e `cidade-b`, com filas e consumidores independentes. A Cidade A recebe um pico de eventos, processa parte da carga e falha. A Cidade B continua processando os eventos que já tinha e novos eventos, sem consumir a fila da Cidade A.
+O programa testa quatro pontos:
 
-O mecanismo externo é simulado por filas em memória. O roteamento exige que o `tenant_id` do evento corresponda à célula. O resultado é determinístico e deve ser idêntico ao arquivo `saida-esperada.txt`.
+1. O gateway carrega o mapa de rotas antes de o catálogo ficar indisponível.
+2. Cidade A recebe um pico e sofre falha; Cidade B continua processando dentro da própria quota.
+3. A indisponibilidade do catálogo não impede o roteamento de tenants já conhecidos.
+4. Uma requisição com tenant do corpo diferente do tenant autenticado é rejeitada.
+
+A prova não depende apenas de contagens fixas: ela verifica que B processa eventos antes e depois da falha de A, que A mantém mensagens pendentes e que a requisição adulterada não entra em nenhuma fila.
 
 ## Como executar
 
 ```bash
-cd entrega-3-spike
 python3 exemplo.py
-
-# conferir contra a saída esperada
-python3 exemplo.py | diff - saida-esperada.txt && echo "OK: saída idêntica"
+python3 exemplo.py > /tmp/saida-spike.txt
+diff -u saida-esperada.txt /tmp/saida-spike.txt
 ```
 
-O programa usa somente a biblioteca padrão do Python 3.12. Asserções interrompem a execução caso o isolamento não seja comprovado.
+O programa usa somente a biblioteca padrão do Python. A saída é determinística.
 
-## O que aconteceria se a decisão estivesse errada?
+## Relação com a objeção recebida
 
-Se as filas fossem compartilhadas, a falha da Cidade A poderia bloquear o consumidor da Cidade B ou consumir sua capacidade. Se o roteamento aceitasse um tenant incorreto, haveria risco de vazamento e processamento na célula errada. Em produção, o mesmo teste seria complementado por testes de carga, falha de infraestrutura e verificação de autorização.
+O Grupo 09 observou que a versão anterior criava duas filas isoladas e não exercitava um recurso compartilhado. Esta versão simula uma célula compartilhada por clientes pequenos, quotas por tenant, falha de um cliente, catálogo fora e tenant adulterado. A arquitetura de produção ainda exigiria teste de carga, múltiplas réplicas do gateway, falhas de rede e validação de configuração.
+
+A saída preserva o rótulo histórico `ADR-0005` do pacote; a decisão vigente é o ADR-0009. O programa simula um gateway e não testa alta disponibilidade de múltiplas réplicas.
 
 ## Referências
 
-1. ADR-0005
-2. *Estilos Arquiteturais de Software: guia de consulta*
+[1]: ../entrega-2-documento-de-arquitetura/adr/0009-roteamento-replicado-e-quota-por-tenant.md "ADR-0009"
+[2]: ../entrega-4-leitura-cruzada/respostas-recebidas.md "Respostas da Entrega 4B"
+[3]: https://puc-campinas.instructure.com/courses/97274/files/4317955 "Estilos Arquiteturais de Software: guia de consulta"
+
+- [ADR-0009][1]
+- [Respostas da Entrega 4B][2]
+- [Estilos Arquiteturais de Software: guia de consulta][3]
